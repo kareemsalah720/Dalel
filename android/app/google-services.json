@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "551633296470",
+    "project_id": "dalel-b3c80",
+    "storage_bucket": "dalel-b3c80.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551633296470:android:54ae852de71b7916026ff7",
+        "android_client_info": {
+          "package_name": "com.example.dalel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo56LabMniut6uJo7U24axX23Am0i5zkU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,14 +1,14 @@
-import 'package:dalel/core/utils/app_assets.dart';
 import 'package:dalel/core/utils/app_text_style.dart';
 import 'package:dalel/features/on_boarding/data/models/on_boarding_model.dart';
 import 'package:dalel/features/on_boarding/presentation/widgets/custom_smooth_page_indicator.dart';
 import 'package:flutter/material.dart';
 
 class onBoardingBody extends StatelessWidget {
- const onBoardingBody({super.key,required this.controller,  this.onPageChanged});
+  const onBoardingBody(
+      {super.key, required this.controller, this.onPageChanged});
 
   final PageController controller;
-  final Function(int)? onPageChanged; 
+  final Function(int)? onPageChanged;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -28,11 +28,11 @@ class onBoardingBody extends StatelessWidget {
                         image: AssetImage(onBoardingData[index].imagePath),
                         fit: BoxFit.fill)),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               CustomSmoothPageIndicator(controller: controller),
-              SizedBox(
+              const SizedBox(
                 height: 32,
               ),
               Text(
@@ -43,7 +43,7 @@ class onBoardingBody extends StatelessWidget {
                     .copyWith(fontWeight: FontWeight.bold),
                 textAlign: TextAlign.center,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Text(
