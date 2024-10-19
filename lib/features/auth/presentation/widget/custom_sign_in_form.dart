@@ -7,6 +7,7 @@ import 'package:dalel/features/auth/presentation/auth_cubit/cubit/auth_cubit.dar
 import 'package:dalel/features/auth/presentation/auth_cubit/cubit/auth_state.dart';
 import 'package:dalel/features/auth/presentation/widget/custom_text_field.dart';
 import 'package:dalel/features/auth/presentation/widget/forgot_password.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,8 +20,9 @@ class custom_sign_In_form extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
           if (state is SigninSuccessState) {
-          ShowToast('Welcome Back');
-          customReplacementNavigate(context, '/hoom');
+        
+           FirebaseAuth.instance.currentUser!.emailVerified? 
+          customReplacementNavigate(context, '/hoom'):ShowToast('Please Verify Your Account');
         } else if (state is SigninFailuerState) {
           ShowToast(state.errorMessage);
         }

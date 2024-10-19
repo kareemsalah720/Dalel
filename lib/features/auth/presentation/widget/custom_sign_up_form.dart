@@ -20,7 +20,7 @@ class custom_sign_Up_form extends StatelessWidget {
       listener: (context, state) {
         if (state is SignupSuccessState) {
           ShowToast('Successfully,check your email to verify your account');
-          customReplacementNavigate(context, '/hoom');
+          customReplacementNavigate(context, '/signIn');  
         } else if (state is SignupFailuerState) {
           ShowToast(state.errorMessage);
         }

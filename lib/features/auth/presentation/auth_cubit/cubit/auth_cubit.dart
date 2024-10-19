@@ -21,7 +21,7 @@ class AuthCubit extends Cubit<AuthState> {
         email: emailAddress!,
         password: password!,
       );
-
+      verifyEmail();
       emit(SignupSuccessState());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -38,6 +38,10 @@ class AuthCubit extends Cubit<AuthState> {
     } catch (e) {
       emit(SignupFailuerState(errorMessage: e.toString()));
     }
+  }
+
+  verifyEmail() async {
+    await FirebaseAuth.instance.currentUser!.sendEmailVerification();
   }
 
   UpdateTermsAndConditionsCheckBox({required newValue}) {
@@ -63,8 +67,10 @@ class AuthCubit extends Cubit<AuthState> {
       } else if (e.code == 'wrong-password') {
         emit(SigninFailuerState(
             errorMessage: 'Wrong password provided for that user.'));
+      } else {
+        emit(SigninFailuerState(errorMessage: 'Check your Email and Password'));
       }
-    }catch (e) {
+    } catch (e) {
       emit(SigninFailuerState(errorMessage: e.toString()));
     }
   }
