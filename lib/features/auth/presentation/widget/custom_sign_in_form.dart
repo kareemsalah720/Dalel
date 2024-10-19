@@ -6,22 +6,22 @@ import 'package:dalel/core/widgets/custom_button.dart';
 import 'package:dalel/features/auth/presentation/auth_cubit/cubit/auth_cubit.dart';
 import 'package:dalel/features/auth/presentation/auth_cubit/cubit/auth_state.dart';
 import 'package:dalel/features/auth/presentation/widget/custom_text_field.dart';
-import 'package:dalel/features/auth/presentation/widget/terms_and_condition.dart';
+import 'package:dalel/features/auth/presentation/widget/forgot_password.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 
-class custom_sign_Up_form extends StatelessWidget {
-  const custom_sign_Up_form({super.key});
+class custom_sign_In_form extends StatelessWidget {
+  const custom_sign_In_form({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
-        if (state is SignupSuccessState) {
-          ShowToast('Successfully,check your email to verify your account');
+          if (state is SigninSuccessState) {
+          ShowToast('Welcome Back');
           customReplacementNavigate(context, '/hoom');
-        } else if (state is SignupFailuerState) {
+        } else if (state is SigninFailuerState) {
           ShowToast(state.errorMessage);
         }
       },
@@ -29,21 +29,9 @@ class custom_sign_Up_form extends StatelessWidget {
         AuthCubit authcubit = BlocProvider.of<AuthCubit>(context);
 
         return Form(
-            key: authcubit.sginupFormKey,
+            key: authcubit.sgininFormKey,
             child: Column(
               children: [
-                CustomTextFormField(
-                  labelText: AppStrings.fristName,
-                  onChanged: (fristName) {
-                    authcubit.fristName = fristName;
-                  },
-                ),
-                CustomTextFormField(
-                  labelText: AppStrings.lastName,
-                  onChanged: (lastName) {
-                    authcubit.lastName = lastName;
-                  },
-                ),
                 CustomTextFormField(
                   labelText: AppStrings.emailAddress,
                   onChanged: (emailAddress) {
@@ -51,6 +39,7 @@ class custom_sign_Up_form extends StatelessWidget {
                   },
                 ),
                 CustomTextFormField(
+                  labelText: AppStrings.password,
                   obscureText: authcubit.obsecureText!,
                   suffixIcon: IconButton(
                       onPressed: () {
@@ -59,36 +48,32 @@ class custom_sign_Up_form extends StatelessWidget {
                       icon: Icon(authcubit.obsecureText!
                           ? Icons.visibility_off
                           : Icons.visibility)),
-                  labelText: AppStrings.password,
                   onChanged: (password) {
                     authcubit.password = password;
                   },
                 ),
-                TermsAndCondition(),
-                SizedBox(
-                  height: 88,
+                  const SizedBox(
+                  height: 16,
                 ),
-                state is SignupLoadingState
-                    ? CircularProgressIndicator()
+            const    ForgotPasswordTextWidget(),
+                const SizedBox(
+                  height: 102,
+                ),
+                state is SigninLoadingState
+                    ? CircularProgressIndicator(
+                        color: AppColors.primaryColor,
+                      )
                     : CustomBtn(
-                        text: AppStrings.signUp,
-                        color:
-                            authcubit.termsAndConditionsCheckBoxValue == false
-                                ? AppColors.Grey
-                                : null,
-                        onPressed: ()async {
-                          if (authcubit.termsAndConditionsCheckBoxValue ==
-                              true) {
-                            if (authcubit.sginupFormKey.currentState!
-                                .validate()) {
-                             await authcubit.signUpWithEmailAndPassword();
-                            } else {
-                              print('how to show error message');
-                            }
-                          }
+                        text: AppStrings.signIn,
+                        onPressed: () async {
+                          if (authcubit.sgininFormKey.currentState!
+                              .validate()) {
+                            await authcubit.signInWithEmailAndPassword();
+                          } 
                         }),
               ],
             ));
-     },);
-}
+      },
+    );
+  }
 }

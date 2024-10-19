@@ -85,4 +85,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'dalel-b3c80.appspot.com',
     measurementId: 'G-CB6V7NJN10',
   );
+
 }

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:dalel/features/auth/presentation/auth_cubit/cubit/auth_state.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
@@ -11,10 +9,11 @@ class AuthCubit extends Cubit<AuthState> {
   String? lastName;
   String? emailAddress;
   String? password;
-  GlobalKey<FormState> sginUpFormKey = GlobalKey();
-  bool? termsAndConditionsCheckBoxValue=false;
-
-  CreateUserWithEmailAndPassword() async {
+  GlobalKey<FormState> sginupFormKey = GlobalKey();
+  GlobalKey<FormState> sgininFormKey = GlobalKey();
+  bool? termsAndConditionsCheckBoxValue = false;
+  bool obsecureText = true;
+  Future<void> signUpWithEmailAndPassword() async {
     try {
       emit(SignupLoadingState());
       final credential =
@@ -22,6 +21,7 @@ class AuthCubit extends Cubit<AuthState> {
         email: emailAddress!,
         password: password!,
       );
+
       emit(SignupSuccessState());
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -30,6 +30,10 @@ class AuthCubit extends Cubit<AuthState> {
       } else if (e.code == 'email-already-in-use') {
         emit(SignupFailuerState(
             errorMessage: 'The account already exists for that email.'));
+      } else if (e.code == 'invalid-email') {
+        emit(SignupFailuerState(errorMessage: 'The email is invalid'));
+      } else {
+        emit(SignupFailuerState(errorMessage: e.code));
       }
     } catch (e) {
       emit(SignupFailuerState(errorMessage: e.toString()));
@@ -39,5 +43,29 @@ class AuthCubit extends Cubit<AuthState> {
   UpdateTermsAndConditionsCheckBox({required newValue}) {
     termsAndConditionsCheckBoxValue = newValue;
     emit(TermsAndConditionsUpdateState());
+  }
+
+  UpdateObsecureText() {
+    obsecureText = !obsecureText;
+    emit(ObsecureTextUpdateState());
+  }
+
+  signInWithEmailAndPassword() async {
+    try {
+      emit(SigninLoadingState());
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailAddress!, password: password!);
+
+      emit(SigninSuccessState());
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        emit(SigninFailuerState(errorMessage: 'No user found for that email.'));
+      } else if (e.code == 'wrong-password') {
+        emit(SigninFailuerState(
+            errorMessage: 'Wrong password provided for that user.'));
+      }
+    }catch (e) {
+      emit(SigninFailuerState(errorMessage: e.toString()));
+    }
   }
 }
