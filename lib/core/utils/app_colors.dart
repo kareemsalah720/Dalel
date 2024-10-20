@@ -9,4 +9,6 @@ abstract class AppColors
   static Color lightGrey = const Color(0xffB4B4B4);
   static Color Grey = const Color(0xffC4C4C4);
   static Color black = const Color(0xff333333);
+  static Color activeColorPrimary = const Color(0xff6A493C);
+  static Color inactiveColorPrimary = const Color(0xff996B5A);
 }

@@ -21,9 +21,9 @@ class _SplashviewState extends State<Splashview> {
         getIt<CacheHelper>().getData(key: 'isOnBoardingVisited') ?? false;
     if (isOnBoardingVisited == true) {
       FirebaseAuth.instance.currentUser == null
-          ? futureNavigate(context, '/signUp')
+          ? futureNavigate(context, '/signIn')
           : FirebaseAuth.instance.currentUser!.emailVerified == true
-              ? futureNavigate(context, '/hoom')
+              ? futureNavigate(context, '/HoomNavBar')
               : futureNavigate(context, '/signIn');
     } else {
       futureNavigate(context, '/onBoarding');

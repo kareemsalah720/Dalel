@@ -22,7 +22,7 @@ class custom_sign_In_form extends StatelessWidget {
           if (state is SigninSuccessState) {
         
            FirebaseAuth.instance.currentUser!.emailVerified? 
-          customReplacementNavigate(context, '/hoom'):ShowToast('Please Verify Your Account');
+          customReplacementNavigate(context, '/HoomNavBar'):ShowToast('Please Verify Your Account');
         } else if (state is SigninFailuerState) {
           ShowToast(state.errorMessage);
         }
