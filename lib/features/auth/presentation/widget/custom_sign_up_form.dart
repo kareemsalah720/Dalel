@@ -54,7 +54,7 @@ class custom_sign_Up_form extends StatelessWidget {
                   obscureText: authcubit.obsecureText!,
                   suffixIcon: IconButton(
                       onPressed: () {
-                        authcubit.UpdateObsecureText();
+                        authcubit.updateObsecureText();
                       },
                       icon: Icon(authcubit.obsecureText!
                           ? Icons.visibility_off

@@ -54,11 +54,11 @@ abstract class CustomTextStyles {
       color: Colors.black
     );
 
-    static final Saira700style32
+    static final PacificoBoldstyle42
    = TextStyle(
-      fontFamily: "Saira",
-      fontSize: 32,
-      fontWeight: FontWeight.w700,
+      fontFamily: "Pacifico",
+      fontSize: 42,
+      fontWeight: FontWeight.bold,
       color: Colors.white
     );
 
