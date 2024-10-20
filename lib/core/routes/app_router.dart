@@ -1,4 +1,5 @@
 import 'package:dalel/features/auth/presentation/auth_cubit/cubit/auth_cubit.dart';
+import 'package:dalel/features/auth/presentation/view/forgot_password_view.dart';
 import 'package:dalel/features/auth/presentation/view/sign_in_view.dart';
 import 'package:dalel/features/auth/presentation/view/sign_up_view.dart';
 import 'package:dalel/features/hoom/presentation/view/hoom_view.dart';
@@ -23,6 +24,12 @@ final GoRouter router = GoRouter(routes: [
       builder: (context, state) => BlocProvider(
             create: (context) => AuthCubit(),
             child:const SignInView(),
+          )),
+            GoRoute(
+      path: "/forgotPassword",
+      builder: (context, state) => BlocProvider(
+            create: (context) => AuthCubit(),
+            child:const ForgotPasswordView(),
           )),
             GoRoute(
       path: "/hoom", builder: (context, state) => const HoomView()),

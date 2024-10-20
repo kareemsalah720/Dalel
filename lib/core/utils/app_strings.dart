@@ -13,10 +13,8 @@ abstract class AppStrings {
       lastName = "Last Name",
       emailAddress = "Email Address",
       password = "Password",
-      iHaveAgreeToOur =
-          "I have agree to our",
-      TermsAndCondition =
-          "Terms and Condition",
+      iHaveAgreeToOur = "I have agree to our",
+      TermsAndCondition = "Terms and Condition",
       signUp = "Sign Up",
       signIn = " Sign In",
       alreadyHaveAnAccount = "Already have an account ?",
@@ -61,10 +59,12 @@ abstract class AppStrings {
       backToHome = "Back To Home",
       //!Forgot password
       forgotPasswordPage = "Forgot Password",
-      sendVerificationCode = "Send Verification Code",
+      sendResetPasswordLink = "Send Reset Password Link",
       verificationNow = "Verification Now",
       resendCode = "Resend Code",
       verifyAccount = "Verify Account",
       enter4DigitCodeWeHaveSentTo = "Enter 4 digit code we have sent to ",
-      haventReceivedVerificationCode = "Haven’t received verification code?";
+      haventReceivedVerificationCode = "Haven’t received verification code?",
+      forgotPasswordSubTitel =
+          'Enter your registered email blow to receive password reset instructions';
 }
