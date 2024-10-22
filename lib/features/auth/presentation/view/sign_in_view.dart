@@ -28,7 +28,7 @@ class SignInView extends StatelessWidget {
         const SliverToBoxAdapter(
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
-            child: custom_sign_In_form(),
+            child: CustomSignInForm(),
           ),
         ),
           const SliverToBoxAdapter(

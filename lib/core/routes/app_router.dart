@@ -3,7 +3,7 @@ import 'package:dalel/features/auth/presentation/view/forgot_password_view.dart'
 import 'package:dalel/features/auth/presentation/view/sign_in_view.dart';
 import 'package:dalel/features/auth/presentation/view/sign_up_view.dart';
 import 'package:dalel/features/hoom/presentation/view/hoom_view.dart';
-import 'package:dalel/features/hoom/presentation/widget/hoom_nav_bar.dart';
+import 'package:dalel/features/hoom/presentation/widget/custom_hoom_nav_bar.dart';
 import 'package:dalel/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:dalel/features/splash/presentation/views/splashview.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

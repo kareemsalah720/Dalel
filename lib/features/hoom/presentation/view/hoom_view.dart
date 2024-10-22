@@ -1,5 +1,7 @@
-import 'package:dalel/core/functions/navigation.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:dalel/features/hoom/presentation/widget/hoom_sections/hoom_historical_characters_section.dart';
+import 'package:dalel/features/hoom/presentation/widget/hoom_sections/hoom_historical_periods_section.dart';
+import 'package:dalel/features/hoom/presentation/widget/hoom_sections/hoom_app_bar_section.dart';
+import 'package:dalel/features/hoom/presentation/widget/hoom_sections/hoom_historical_souvenirs_section.dart';
 import 'package:flutter/material.dart';
 
 class HoomView extends StatelessWidget {
@@ -7,20 +9,18 @@ class HoomView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        actions: [
-          IconButton(
-            onPressed: () {
-              FirebaseAuth.instance.signOut();
-              customReplacementNavigate(context, '/signIn');
-            },
-            icon: const Icon(Icons.logout),
-          ),
-        ],
-      ),
-      body: const Center(
-        child: Text('Hoom'),
+    return const Scaffold(
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 15),
+        child: CustomScrollView(
+          physics: BouncingScrollPhysics(),
+          slivers: [
+            SliverToBoxAdapter(child: HoomAppBarSection()),
+            SliverToBoxAdapter(child: HistoricalPeriodsSection()),
+            SliverToBoxAdapter(child: HistoricalCharactersSection()),
+            SliverToBoxAdapter(child: HistoricalSouvenirsSection()),
+          ],
+        ),
       ),
     );
   }

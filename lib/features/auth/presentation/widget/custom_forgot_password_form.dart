@@ -17,10 +17,10 @@ class CustomForgotPasswordForm extends StatelessWidget {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is ResetPasswordSuccessState) {
-          ShowToast('Check your email to reset your password');
+          showToast('Check your email to reset your password');
           customReplacementNavigate(context, '/signIn');
         } else if (state is ResetPasswordFailuerState) {
-          ShowToast(state.errorMessage);
+          showToast(state.errorMessage);
         }
       },
       builder: (context, state) {

@@ -12,8 +12,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 
-class custom_sign_In_form extends StatelessWidget {
-  const custom_sign_In_form({super.key});
+class CustomSignInForm extends StatelessWidget {
+  const CustomSignInForm({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +22,9 @@ class custom_sign_In_form extends StatelessWidget {
           if (state is SigninSuccessState) {
         
            FirebaseAuth.instance.currentUser!.emailVerified? 
-          customReplacementNavigate(context, '/HoomNavBar'):ShowToast('Please Verify Your Account');
+          customReplacementNavigate(context, '/HoomNavBar'):showToast('Please Verify Your Account');
         } else if (state is SigninFailuerState) {
-          ShowToast(state.errorMessage);
+          showToast(state.errorMessage);
         }
       },
       builder: (context, state) {

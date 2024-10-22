@@ -6,6 +6,18 @@ class Assets {
   /// assets/images/forgetPassword.png
   static const String imagesForgetPassword = "assets/images/forgetPassword.png";
 
+  /// Assets for imagesFrame27
+  /// assets/images/Frame27.png
+  static const String imagesFrame27 = "assets/images/Frame27.png";
+
+  /// Assets for imagesFrame28
+  /// assets/images/Frame28.png
+  static const String imagesFrame28 = "assets/images/Frame28.png";
+
+  /// Assets for imagesMenu
+  /// assets/images/menu.svg
+  static const String imagesMenu = "assets/images/menu.svg";
+
   /// Assets for imagesMosque
   /// assets/images/mosque.svg
   static const String imagesMosque = "assets/images/mosque.svg";

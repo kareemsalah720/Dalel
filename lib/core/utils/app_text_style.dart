@@ -23,7 +23,8 @@ abstract class CustomTextStyles {
       fontWeight: FontWeight.w300,
       color: Colors.black
     );
- static final poppins500style24
+    
+  static final poppins500style24
    = TextStyle(
       fontFamily: "Poppins",
       fontSize: 24,
@@ -54,7 +55,7 @@ abstract class CustomTextStyles {
       color: Colors.black
     );
 
-    static final PacificoBoldstyle42
+    static final pacificoBoldstyle42
    = TextStyle(
       fontFamily: "Pacifico",
       fontSize: 42,
@@ -62,5 +63,12 @@ abstract class CustomTextStyles {
       color: Colors.white
     );
 
+ static final poppins400style20
+   = TextStyle(
+      fontFamily: "Poppins",
+      fontSize: 20,
+      fontWeight: FontWeight.w400,
+      color: AppColors.deepgrey
+    );
 
 }
