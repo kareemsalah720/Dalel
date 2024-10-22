@@ -70,3 +70,11 @@ abstract class AppStrings {
       forgotPasswordSubTitel =
           'Enter your registered email blow to receive password reset instructions';
 }
+
+abstract class FirebaseStrings {
+  static const String historicalperiods = 'historical_periods';
+  static const String name = 'name';
+  static const String description = 'description';
+  static const String image = 'image';
+  static const String wars = 'wars';
+}

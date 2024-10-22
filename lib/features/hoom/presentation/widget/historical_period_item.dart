@@ -1,11 +1,12 @@
 import 'package:dalel/core/utils/app_assets.dart';
 import 'package:dalel/core/utils/app_colors.dart';
 import 'package:dalel/core/utils/app_text_style.dart';
+import 'package:dalel/features/hoom/data/model/historical_periods_model.dart';
 import 'package:flutter/material.dart';
 
 class HistoricalPeriodsItem extends StatelessWidget {
-  const HistoricalPeriodsItem({super.key});
-
+  const HistoricalPeriodsItem({super.key, required this.model});
+final  HistoricalPeriodsModel model;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,7 +30,7 @@ class HistoricalPeriodsItem extends StatelessWidget {
           height: 48,
           width: 63,
           child: Text(
-            'Anicent Egypt',
+            model.name,
             style: CustomTextStyles.poppins500style18
                 .copyWith(color: AppColors.deepBrown, fontSize: 16),
             overflow: TextOverflow.ellipsis,
@@ -39,8 +40,8 @@ class HistoricalPeriodsItem extends StatelessWidget {
         Container(
           height: 64,
           width: 47,
-          decoration: const BoxDecoration(
-              image: DecorationImage(image: AssetImage(Assets.imagesFrame27))),
+          decoration:  BoxDecoration(
+              image: DecorationImage(image: NetworkImage(model.image))),
         ),
         const SizedBox(
           width: 16,
