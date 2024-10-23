@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dalel/core/utils/app_strings.dart';
+import 'package:dalel/core/widgets/custom_shimmer_category.dart';
 import 'package:dalel/features/hoom/data/model/historical_periods_model.dart';
 import 'package:dalel/features/hoom/presentation/widget/historical_period_item.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +43,7 @@ class HistoricalPeriods extends StatelessWidget {
                   ),
                 ));
           }
-          return const Center(child: CircularProgressIndicator());
+          return const CustomShimmerCategory();
         });
   }
 }

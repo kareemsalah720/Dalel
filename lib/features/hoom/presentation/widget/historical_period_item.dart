@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class HistoricalPeriodsItem extends StatelessWidget {
   const HistoricalPeriodsItem({super.key, required this.model});
-final  HistoricalPeriodsModel model;
+  final HistoricalPeriodsModel model;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -23,9 +23,7 @@ final  HistoricalPeriodsModel model;
             )
           ]),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        const SizedBox(
-          width: 16,
-        ),
+        const SizedBox(width: 16),
         SizedBox(
           height: 48,
           width: 63,
@@ -40,7 +38,7 @@ final  HistoricalPeriodsModel model;
         Container(
           height: 64,
           width: 47,
-          decoration:  BoxDecoration(
+          decoration: BoxDecoration(
               image: DecorationImage(image: NetworkImage(model.image))),
         ),
         const SizedBox(
