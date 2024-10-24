@@ -1,23 +1,23 @@
+import 'package:dalel/core/models/data_model.dart';
 import 'package:dalel/core/utils/app_strings.dart';
+import 'package:dalel/features/hoom/data/model/wars_model.dart';
 
-class HistoricalPeriodsModel {
-  final String name;
-  final String image;
-  final String description;
-  final Map<String, dynamic> wars;
+class HistoricalPeriodsModel extends DataModel {
+  
+  final List<WarsModel> wars;
   HistoricalPeriodsModel({
-    required this.name,
-    required this.image,
-    required this.description,
+    required super.name,
+    required super.image,
+    required super.description,
     required this.wars,
   });
 
-  factory HistoricalPeriodsModel.fromJson(json) {
+  factory HistoricalPeriodsModel.fromJson(json,warsList) {
     return HistoricalPeriodsModel(
       name: json[FirebaseStrings.name],
       image: json[FirebaseStrings.image],
       description: json[FirebaseStrings.description],
-      wars: json[FirebaseStrings.wars],
+      wars: warsList,
     );
   }
 }
